@@ -1,0 +1,129 @@
+<html>
+<head>
+    <title>홈 - Shybutter</title>
+    <meta http-equiv="Content-Type" content="text/html;" charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <link href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/variable/woff2/SUIT-Variable.css" rel="stylesheet">
+    <style>
+        *{font-family: 'SUIT Variable', sans-serif;outline: none;}
+        .mainTitleBox{    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: calc(100vh - 50px);
+margin-left: 15%;}
+        .mainTitle{font-size: 4em;margin:10px}
+        .mainDesc{font-size: 2em;margin:10px;word-break: keep-all;}
+        .navbar .navleft ul li:nth-child(2) .nav-item{
+            background-color: white;
+            color:black
+        }
+        .contentsBox{display: flex;justify-content: center;}
+        /* .feedContainer{} */
+        .feedBox{margin:15px;margin-top:15px;border:0 2px solid gray;}
+        .writerOuterContainer{display: flex;flex-direction: column;}
+        .writerContainer{display: flex;padding: 30px;}
+        .userBox{margin-right: 10px;}
+        .writerBox{display: flex;flex-direction: column;}
+        .profileImg{border-radius: 100%; width:75px;height: 75px;}
+        .butterWriter{font-size: 1.2em;min-height: 120px;min-width: 500px;max-width: 500px;margin-bottom:15px;border:none;border-bottom: 2px solid mediumpurple;}
+        .writerBtnBox{display: flex;justify-content: space-between;}
+        .writerEtcBtn{display: flex;}
+        .writerEtcBtn>button{margin-right:10px}
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+        function dropDownMobile(dir,where){
+    if(dir==true&&where=='login'){
+        $(".navbar li ."+where+"open").css({'display' : 'none'});
+        $(".navbar li ."+where+"close").css({'display' : 'block'});
+        $(".navbar .navmr li #"+where+"Menu").css({'-webkit-animation-name' : 'dropDownMenuDown', 'animation-name' : 'dropDownMenuDown', 'display' : 'block'});
+    }else if(dir==false&&where=='login'){
+        $(".navbar li ."+where+"open").css({'display' : 'block'});
+        $(".navbar li ."+where+"close").css({'display' : 'none'});
+        $(".navbar .navmr li #"+where+"Menu").css({'-webkit-animation-name' : 'dropDownMenuUp', 'animation-name' : 'dropDownMenuUp'});
+    }else if(dir==true&&(where=='main'||where=='user')){
+        $(".navbar li ."+where+"open").css({'display' : 'none'});
+        $(".navbar li ."+where+"close").css({'display' : 'block'});
+        menuCount=$("#"+where+"Menu li").length;
+        $("#"+where+"Menu").animate({ 'min-height' : (menuCount*50) }, 'fast');
+    }else if(dir==false&&(where=='main'||where=='user')){
+        $(".navbar li ."+where+"open").css({'display' : 'block'});
+        $(".navbar li ."+where+"close").css({'display' : 'none'});
+        $("#"+where+"Menu").animate({ 'min-height' : '0px' }, 'fast');
+    }
+}
+    </script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navml">
+            <ul>
+                <li><a href="#" class="title" id="customAppName">Shybutter</a></li>
+            </ul>
+        </div>
+        <div class="navleft">
+            <ul>
+                <li><span class="title" id="customAppName">Shybutter</span></li>
+                <li><a href="#" class="nav-item"><i class="xi-home-o"></i><div> 홈</div></a></li>
+                <li><a href="#" class="nav-item"><i class="xi-trending-up"></i><div> 지금 무슨 일이</div></a></li>
+                <li><a href="#" class="nav-item"><i class="xi-bell-o"></i><div> 알림</div></a></li>
+                <li><a href="#" class="nav-item"><i class="xi-mail-o"></i><div> 메세지</div></a></li>
+                <li><a href="#" class="nav-item"><i class="xi-user-o"></i><div> 나</div></a></li>
+            </ul>
+        </div>
+        <div class="navright">
+            <ul>
+                <li><a href="#" class="profileDropdown"><img class="profileDropdownImg" src="../uitest/profile_img.jpg"> @09876543__1 <i class="xi-caret-down-min"></i></a>
+                    <ul>
+                        <li><a href="#">로그아웃</a></li>
+                        <li><a href="#">계정 전환</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="navmr">
+            <ul>
+                <li><a class="mainopen" href="javascript:void(0)" onclick="dropDownMobile(true,'main')"><i class="xi-bars"></i> 메뉴</a>
+                    <a class="mainclose" href="javascript:void(0)" onclick="dropDownMobile(false,'main')"><i class="xi-close"></i> 닫기</a>
+                    <ul id="mainMenu">
+                        <li><a href="/" class="nav-item"><i class="xi-home-o"></i><div> 홈</div></a></li>
+                        <li><a href="#" class="nav-item"><i class="xi-trending-up"></i><div> 지금 무슨 일이</div></a></li>
+                        <li><a href="#" class="nav-item"><i class="xi-bell-o"></i><div> 알림</div></a></li>
+                        <li><a href="#" class="nav-item"><i class="xi-mail-o"></i><div> 메세지</div></a></li>
+                        <li><a href="#" class="nav-item"><i class="xi-user-o"></i><div> 나</div></a></li>
+                        <!-- <li><a href="/jp"><i class="xi-translate"></i> 日本語</a></li> -->
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="contentsBox">
+        <section class="feedContainer">
+            <div class="feedBox">
+                <div class="writerContainer">
+                    <div class="userBox">
+                        <img class="profileImg" src="../uitest/profile_img.jpg">
+                    </div>
+                    <div class="writerBox">
+                        <textarea class="butterWriter" placeholder="내가 팔고 싶은 버터는..."></textarea>
+                        <div class="writerBtnBox">
+                            <div class="writerEtcBtn">
+                                <button class="underbarBtn"><i class="xi-image-o"></i></button>
+                                <button class="underbarBtn"><i class="xi-package"></i></button>
+                                <button class="underbarBtn"><i class="xi-calendar-add"></i></button>
+                                <button class="underbarBtn"><i class="xi-my-location"></i></button>
+                            </div>
+                            <div>
+                                <button class="underbarBtn">버터 팔기</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP|Noto+Sans+KR');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100&display=swap');
+@font-face{
+	font-family: Dunggeunmo;
+	src: url('./DungGeunMo.woff2') format('woff2'),
+		 url('./DungGeunMo.woff') format('woff');
+}
+@font-face{
+	font-family: Dossaemmul;
+	src: url('./DOSSaemmul.woff') format('woff');
+}
+*{font-family: 'SUIT Variable', sans-serif;outline: none;}
+html{
+	scroll-behavior: smooth;
+}
+a:hover{
+	text-decoration: none;
+}
+a:visited{
+	color: black;
+}
+a:link{
+	color: black;
+}
+body{margin:0; background: white;color:black;word-break: break-word;}
+.contentsBox{padding-top: 50px;background: white;}
+.titleBox{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	min-height: calc(100vh - 50px);
+}
+.underbarBtn{
+    position: relative;
+  display:block;
+  height: 45px;
+  padding:0 10px;
+  border:none;
+  border-bottom: 2px mediumpurple solid;
+  outline: 0;
+  overflow:hidden;
+  background: none;
+  z-index: 1;
+  cursor: pointer;
+  transition:         0.08s ease-in;
+}
+.underbarBtn:hover {
+    color: whitesmoke;
+  }
+.underbarBtn:before {
+    content: "";
+    position: absolute;
+    background: mediumpurple;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 100%;
+    z-index: -1;
+    transition: top 0.09s ease-in;
+  }
+  
+  .underbarBtn:hover:before {
+    top: 0;
+  }
+footer{
+    color:white;
+	background: mediumpurple;
+	display: flex;
+	padding: 15px 30px;
+	justify-content: space-between;
+    align-items: center;
+}
+/*여기부터 네비게이션 바 CSS*/
+.navbar{
+	background: mediumpurple;
+	width: 100%;
+	border:none;
+	border:0px;
+	margin:0px;
+	padding:0px;
+	white-space: nowrap;
+	position: fixed;
+	z-index:200;
+	}
+	
+.navbar ul{
+	background: mediumpurple;
+	height:50px;
+	list-style:none;
+	margin:0;
+	padding:0;
+	}
+	
+.navbar li{
+	float:left;
+	padding:0px;
+	}
+.navbar .title{
+	padding:0px 30px;
+	line-height:50px;
+	color:white;
+}
+.navbar li a{
+	background: mediumpurple;
+	position: relative;
+	color:white;
+	display:block;
+	font-weight:normal;
+	line-height:50px;
+	margin:0px;
+	padding:0px 15px;
+	text-align:center;
+	text-decoration:none;
+    transition: all 0.15s;
+	}
+.navbar li a i{
+    line-height: 50px;
+}
+.navbar li a:hover{
+	background: white;
+	color:black;
+	text-decoration:none;
+	}
+.navbar ul li:hover ul a{
+    background: mediumpurple;
+	color:white;
+	text-decoration:none;
+}
+.navbar li a div{
+	display:inline-flex;
+}
+.navbar li ul{
+	background: mediumpurple; /* 평상시에는 드랍메뉴가 안보이게 하기 */
+	overflow: hidden;
+	height:auto;
+	max-height:0;
+	padding:0px;
+	margin:0px;
+	border:0px;
+	position:absolute;
+	min-width:150px;
+	z-index:200;
+	transition: max-height 0.2s;
+	/*top:1em;
+	/*left:0;*/
+	}	
+	
+.navbar .navleft li:hover ul, .navbar .navright li:hover ul{ /* 마우스 커서 올리면 드랍메뉴 보이게 하기 */
+	max-height:100px;
+	}
+	
+.navbar li li {
+	background: mediumpurple;
+	display: block;
+	float:none;
+	margin:0px;
+	padding:0px;
+	}
+	
+.navbar li:hover li a{
+	background:none;
+	}
+	
+.navbar li ul a{
+	height:50px;
+	font-style:normal;
+	margin:0px;
+	padding:0px 15px 0px 15px;
+	text-align:center;
+	}
+	
+.navbar li ul a:hover, .navbar li ul li:hover a{
+	background: white;
+	border:0px;
+	color:black;
+	text-decoration:none;
+	}
+.navbar p{
+	clear:left;
+	}
+.navbar li .mainopen{display:block;padding: 0 30px 0 15px;}
+.navbar li .mainclose{display:none;padding: 0 30px 0 15px;}
+.navbar li .useropen{display:block;}
+.navbar li .userclose{display:none;}
+.navbar .navmr li ul a{
+	background: mediumpurple;
+	color:#ffffff;
+	display:block;
+	font-weight:normal;
+	line-height:50px;
+	margin:0px;
+	padding:0px 15px;
+	text-align:left;
+	text-decoration:none;
+	}
+.navbar .navmr li ul{
+	right:0px;
+	width:100%;
+	}
+.profileDropdown{display: flex;
+    align-items: center;}
+.profileDropdownImg{width:30px;height:30px;border-radius: 100%;margin-right:5px;vertical-align: -8px;}
+/*여기까지 네비게이션 바 CSS*/
+@media screen and (min-width:1200px){
+	.navbar{display: flex;justify-content: space-between;padding: 0 15%;width: 70%;}
+	.navml{display:none;}
+	.navmr{display:none;}
+	p{line-height:1.2em;}.p08{font-size:0.8em;}.p15{font-size:1.5em;}.p12{font-size:1.2em;}.p2{font-size: 2em;}button,select{font-size: 1em;}
+	.navbar ul li div{margin-left:3px}
+}
+/* @media screen and (max-width:1320px) and (min-width:800px){
+	.navbar{display: flex;justify-content: space-between;}
+	.navbar .navright li ul{
+		right:0px;
+		}
+	.navmr{display:none;}
+	.navml{display:none;}
+	p{line-height:1.2em;}.p08{font-size:0.8em;}.p15{font-size:1.5em;}.p12{font-size:1.2em;}.p2{font-size: 2em;}button,select{font-size: 1em;}
+	.navbar li a div{
+		text-align:center;
+		max-height:0px;
+		min-width:21px;
+		position:absolute;
+		overflow: hidden;
+		top:60px;
+		left:0;
+		z-index:190;
+		transition: max-height 0.3s;
+		transition: padding 0.1s;
+		line-height:normal;
+		padding:0px;
+		border-radius:17.5px;
+	}
+	.navbar li:hover a div{
+		max-height:100px;
+		padding:5px;
+	}
+} */
+@media screen and (max-width:1199px){
+.navbar{display: flex;justify-content: space-between;padding: 0 0;}
+.navright{display:none;}
+.navleft{display:none;}
+p,a,button,select{font-size:0.9em;}.p08{font-size:0.8em;}.p15{font-size:1.2em;}.p12{font-size:1em;}.p2{font-size: 1.5em;}
+.mainTitle{
+	font-size: 2.5em;
+}
+}

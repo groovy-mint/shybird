@@ -1,0 +1,64 @@
+<html>
+<head>
+    <title>Shybutter - 부끄럼쟁이를 위한 산파랑지빠귀</title>
+    <meta http-equiv="Content-Type" content="text/html;" charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <link href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/variable/woff2/SUIT-Variable.css" rel="stylesheet">
+    <style>
+        *{font-family: 'SUIT Variable', sans-serif;outline: none;}
+        .contentsBox{padding:0;
+background: url('./sources/back1.jpeg') no-repeat center center; background-size: cover;}
+        .mainTitleBox{display: flex;flex-direction: column;justify-content: center;align-items: flex-start;min-height: 100vh;margin-left: 15%;}
+        .contentsBox>section{background-color: #00000070;}
+        .mainTitle{font-size: 4em;margin:10px;color:white;}
+        .mainDesc{font-size: 2em;margin:10px;word-break: keep-all;color:white;margin-bottom: 50px;}
+        .startBtn{cursor: pointer;background: #00000000;margin: 20px;min-width: 200px;padding: 10px 20px;border-radius: 50px;border: 2px solid white;transition: all 0.2s;color:white}
+        .startBtn:hover{background: white;color:black}
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+        function dropDownMobile(dir,where){
+    if(dir==true&&where=='login'){
+        $(".navbar li ."+where+"open").css({'display' : 'none'});
+        $(".navbar li ."+where+"close").css({'display' : 'block'});
+        $(".navbar .navmr li #"+where+"Menu").css({'-webkit-animation-name' : 'dropDownMenuDown', 'animation-name' : 'dropDownMenuDown', 'display' : 'block'});
+    }else if(dir==false&&where=='login'){
+        $(".navbar li ."+where+"open").css({'display' : 'block'});
+        $(".navbar li ."+where+"close").css({'display' : 'none'});
+        $(".navbar .navmr li #"+where+"Menu").css({'-webkit-animation-name' : 'dropDownMenuUp', 'animation-name' : 'dropDownMenuUp'});
+    }else if(dir==true&&(where=='main'||where=='user')){
+        $(".navbar li ."+where+"open").css({'display' : 'none'});
+        $(".navbar li ."+where+"close").css({'display' : 'block'});
+        menuCount=$("#"+where+"Menu li").length;
+        $("#"+where+"Menu").animate({ 'min-height' : (menuCount*50) }, 'fast');
+    }else if(dir==false&&(where=='main'||where=='user')){
+        $(".navbar li ."+where+"open").css({'display' : 'block'});
+        $(".navbar li ."+where+"close").css({'display' : 'none'});
+        $("#"+where+"Menu").animate({ 'min-height' : '0px' }, 'fast');
+    }
+}
+    </script>
+</head>
+<body>
+    <div class="contentsBox">
+        <section>
+            <div class="mainTitleBox">
+                <p class="mainTitle">Shybutter</p>
+                <p class="mainDesc">[샤이버터] 부끄럼쟁이들을 위한 파랑새</p>
+                <button class="startBtn" onclick="location.href='./home'">데모 구경하러가기 <i class="xi-arrow-right"></i></button>
+                <br>
+            </div>
+        </section>
+    </div>
+    <footer>
+        <div>
+            <p>Terms of service ・ Privacy Policy ・ Contact ・ Smile Creative Lab. 2021</p>
+        </div>
+        <div>
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="크리에이티브 커먼즈 라이선스" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>
+        </div>
+    </footer>
+</body>
+</html>
